@@ -1,3 +1,20 @@
+ul.mobile-nav {
+    background-color: #006994;
+    padding: 10px;
+}
+ul {
+    list-style-type: none;
+}
+section.sidebar {
+    background-color: #3d3d3d;
+    height: 100vh;
+    color: #fff;
+}
+@media screen and (min-width: 992px) {
+    ul.mobile-nav {
+        display: none !important;
+    }
+}
 @media screen and (max-width: 992px) {
     section.sidebar {
         display: none;
