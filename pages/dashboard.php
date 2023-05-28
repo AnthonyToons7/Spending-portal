@@ -6,11 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
     <header></header>
     <main>
-        <section class="sidebar"></section>
+        <section class="sidebar d-flex flex-column">
+            <ul>
+                <li>Dashboard</li>
+                <li>Create new</li>
+                <li>Add note</li>
+                <li>Account</li>
+            </ul>
+            <ul>
+                <li>Log out</li>
+            </ul>
+        </section>
         <section class="content"></section>
     </main>
     <footer></footer>
