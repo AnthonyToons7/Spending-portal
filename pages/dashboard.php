@@ -10,7 +10,7 @@
 </head>
 <body>
     <header>
-        <ul class="nav mobile-nav d-flex flex-column mb-4">
+        <ul class="nav mobile-nav flex-column mb-4">
             <li>Dashboard</li>
             <li>Create new</li>
             <li>Add note</li>

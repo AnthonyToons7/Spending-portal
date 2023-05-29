@@ -14,9 +14,15 @@ section.sidebar {
     ul.mobile-nav {
         display: none !important;
     }
+    section.sidebar{
+        display: flex;
+    }
 }
 @media screen and (max-width: 992px) {
+    ul.mobile-nav {
+        display: flex;
+    }
     section.sidebar {
-        display: none;
+        display: none !important;
     }
 }
