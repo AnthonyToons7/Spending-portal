@@ -10,19 +10,18 @@
 <body>
     <main>
         <div class="login-box">
-            <form action="crud-pages/process-login.php">
+            <form action="crud-pages/process-login.php" method="POST">
                 <input type="text" name="username" placeholder="username" required>
                 <input type="email" name="email" placeholder="email" required>
                 <input type="password" name="password" placeholder="password" required>
-                <input type="submit" value="Login">
+                <input type="submit" name="submit" value="Login">
             </form>
             <!-- User can create an account if they don't have one -->
             <div class="no-account">
                 <p>Don't have an account?</p>
-                <a href="crud-pages/create-account.php" class="button button-blue">Make one!</a>
+                <a href="crud-pages/create-account.php" class="button-blue">Make one!</a>
             </div>
         </div>
     </main>
-    <script src="js/script.js"></script>
 </body>
 </html>

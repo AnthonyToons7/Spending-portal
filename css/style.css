@@ -1,3 +1,12 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+div.top-bar {
+    background-color: #006994;
+    height: 40px;
+}
 ul.mobile-nav {
     background-color: #006994;
     padding: 10px;
@@ -9,6 +18,9 @@ section.sidebar {
     background-color: #3d3d3d;
     height: 100vh;
     color: #fff;
+    position: sticky;
+    top: 0;
+    left: 0;
 }
 div.reason p{
     width: 150px;
@@ -16,18 +28,68 @@ div.reason p{
     text-overflow: ellipsis;
 }
 div.add-new{
-    width: 30px;
-    height: 30px;
-    padding: 20px;
+    width: 45px;
+    height: 45px;
     background-color: #006994;
     color: #fff;
+    padding: 10px;
     border-radius: 100%;
+    transition: all 1s;
 }
 div.recent-spendings {
     padding: 10px;
 }
 div.recent-spending{
-    padding-left: 20px;
+    padding: 20px;
+    border-bottom: 1px solid rgb(181, 181, 181);
+}
+a.button-edit {
+    background-color: rgb(38, 98, 38);
+}
+a.button-remove {
+    background-color: rgb(201, 54, 54);
+}
+a.button {
+    text-decoration: none;
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+}
+.price-amt {
+    padding: 10px;
+}
+.bar-container {
+    height: 100%;
+}
+div.stat-bar {
+    height: 0;
+    background-color: #006994;
+    padding: unset !important;
+    border: 1px solid #73c6d8;
+    transition: all 2s;
+}
+div.stat-row {
+    padding: 10px;
+}
+a.button.button-remove:hover {
+    background-color: rgb(173, 47, 47);
+    cursor: pointer;
+    transition: all .3s;
+}
+a.button.button-edit:hover {
+    background-color: rgb(28, 73, 28);
+    cursor: pointer;
+    transition: all .3s;
+}
+div.add-new:hover {
+    background-color: #0b5500;
+    /* background-color: #003d55; */
+    transform: rotate(540deg);
+    transition: all 1s;
+}
+div.stat-bar:hover {
+    background-color: #003448;
+    transition: all .5s;
 }
 @media screen and (min-width: 992px) {
     ul.mobile-nav {

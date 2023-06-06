@@ -1,3 +1,31 @@
+<?php 
+include "../dbpasswords.php";
+session_start();
+if ($_SESSION["PORTAL_LOGGEDIN"] != true){
+    header("Location:../login.php");
+}
+$id = $_GET["id"];
+$mysqli = new mysqli($one,$two,$three,$four, "3306");
+$qry = "SELECT SPENDING_AMOUNT, SPENDING_DATE, SPENDING_TITLE FROM spendings WHERE USER_ID = ? ORDER BY SPENDING_DATE DESC LIMIT 3 ;";
+$mysqli_stmt = $mysqli->prepare($qry);
+$mysqli_stmt->bind_param('i', $id);
+$mysqli_stmt->execute();
+$result = $mysqli_stmt->get_result();
+$content = "";
+if ($result->num_rows > 0) { 
+    while ($row = $result->fetch_assoc()) {
+        $content .= '<div class="container recent-spending d-flex align-items-center mb-3">';
+        $content .= '<div class="date col-3">'.$row["SPENDING_DATE"].'</div>';
+        $content .= '<div class="reason col-3">'.$row["SPENDING_TITLE"].'</div>';
+        $content .= '<div class="amount col-3">&euro;'.$row["SPENDING_AMOUNT"].'</div>';
+        $content .= '<div class="col-3 buttons-edit-remove d-flex justify-content-evenly">';
+        $content .= '<a class="button button-edit">Edit</a>';
+        $content .= '<a class="button button-remove">Remove</a>';
+        $content .= '</div>';
+        $content .='</div>';
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,72 +49,73 @@
         </ul>
     </header>
     <main>
-        <div class="content d-flex">
-            <section class="sidebar d-flex flex-column col-3">
-                <ul>
-                    <li>Dashboard</li>
-                    <li>All spendings</li>
-                    <li>Create new</li>
-                    <li>Add note</li>
-                    <li>Account</li>
-                </ul>
-                <ul>
-                    <li>Log out</li>
-                </ul>
+        <div class="d-flex">
+            <section class="container sidebar d-flex justify-content-between flex-column col-2">
+                <div class="row">
+                    <div class="col-2"></div>
+                    <ul class="col-10 pt-3">
+                        <li>Dashboard</li>
+                        <li>All spendings</li>
+                        <li>Create new</li>
+                        <li>Add note</li>
+                        <li>Account</li>
+                    </ul>
+                </div>
+                <div class="row">
+                <div class="col-2"></div>
+                    <ul class="col-10 pb-3">
+                        <li>Log out</li>
+                    </ul>
+                </div>
             </section>
-            <section class="dashboard-content col-9">
-                <div class="content">
-                    <div class="statistics col-12 mb-3">
-                        <div class="d-grid">
-                            <div class="col-1"></div>
-                            <div class="col-11 stats-container"></div>
-                            <div class="col-11"></div>
+            <section class="dashboard-content col-10">
+                <div class="col-12 top-bar mb-4"></div>
+                <div class="container">
+                    <div class="row mx-auto">
+                        <h1>Statistics</h1>
+                    </div>
+                    <div class="row stat-row">
+                        <div class="statistics col-12 mb-3">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="container col-1 stats-container-cash d-flex flex-column-reverse"></div>
+                                    <div class="col-11 container">
+                                        <div class="row bar-container d-flex align-items-end col-11"></div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="container d-grid justify-items-center col-11" style="padding:unset;">
+                                        <div class="container col-11 stats-container d-flex mx-auto">
+                                            <div class="row col-12"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="recent-spendings col-12">
-                        <div class="content col-12 d-flex align-items-center mb-4">
-                            <div class="content col-9">
-                                <h1>Recent spendings</h1>
+                    <div class="row">
+                        <div class="recent-spendings col-12">
+                            <div class="container col-12 d-flex align-items-center mb-4">
+                                <div class="content col-10 mx-auto">
+                                    <h1>Recent spendings</h1>
+                                </div>
+                                <div class="container col-2 d-flex justify-content-end">
+                                    <div class="add-new d-flex justify-content-center align-items-center">
+                                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" style="fill:#fff;" width="30px" height="30px" viewBox="0 0 122.875 122.648"><g><path fill-rule="evenodd" clip-rule="evenodd" d="M108.993,47.079c7.683-0.059,13.898,6.12,13.882,13.805 c-0.018,7.683-6.26,13.959-13.942,14.019L75.24,75.138l-0.235,33.73c-0.063,7.619-6.338,13.789-14.014,13.78 c-7.678-0.01-13.848-6.197-13.785-13.818l0.233-33.497l-33.558,0.235C6.2,75.628-0.016,69.448,0,61.764 c0.018-7.683,6.261-13.959,13.943-14.018l33.692-0.236l0.236-33.73C47.935,6.161,54.209-0.009,61.885,0 c7.678,0.009,13.848,6.197,13.784,13.818l-0.233,33.497L108.993,47.079L108.993,47.079z"/></g></svg>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="content col-2 d-flex justify-content-center">
-                                <div class="add-new"></div>
-                            </div>
-                            <div class="content col-1"></div>
-                        </div>
-                        <div class="content recent-spending d-flex">
-                            <div class="date col-3">6-6-2023</div>
-                            <div class="reason col-3"><p>Gamecube controller</p></div>
-                            <div class="amount col-3">&euro;20,00</div>
-                            <div class="col-3 buttons-edit-remove d-flex">
-                                <button>Edit</button>
-                                <button>Remove</button>
-                            </div>
-                        </div>
-                        <div class="content recent-spending d-flex">
-                            <div class="date col-3">6-6-2023</div>
-                            <div class="reason col-3"><p>Double dash</p></div>
-                            <div class="amount col-3">&euro;40,00</div>
-                            <div class="col-3 buttons-edit-remove d-flex">
-                                <button>Edit</button>
-                                <button>Remove</button>
-                            </div>
-                        </div>
-                        <div class="content recent-spending d-flex">
-                            <div class="date col-3">6-6-2023</div>
-                            <div class="reason col-3"><p>Gamecube</p></div>
-                            <div class="amount col-3">&euro;120,00</div>
-                            <div class="col-3 buttons-edit-remove d-flex">
-                                <button>Edit</button>
-                                <button>Remove</button>
-                            </div>
+                            <?=$content?>
                         </div>
                     </div>
                 </div>
             </section>
         </div>
     </main>
-    <footer></footer>
+    <footer>
+
+    </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
-    <script src="../js/script.js"></script>
+    <script src="../js/script.js" defer></script>
 </body>
 </html>
