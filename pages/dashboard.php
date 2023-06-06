@@ -41,25 +41,30 @@ if ($result->num_rows > 0) {
 <body>
     <header>
         <ul class="nav mobile-nav flex-column mb-4">
-            <li>Dashboard</li>
-            <li>All spendings</li>
-            <li>Create new</li>
-            <li>Add note</li>
-            <li>Account</li>
-            <li>Log out</li>
+            <li><a href="dashboard.php?id=<?=$id?>">Dashboard</a></li>
+            <li><a href="#">All spendings</a></li>
+            <li><a href="#">Create new</a></li>
+            <li><a href="#">Add note</a></li>
+            <li><a href="profile.php">Account</a></li>
+            <li><a href="https://anthonytoons.nl">Main site</a></li>
         </ul>
     </header>
     <main>
+        <div class="amount-spent-month">
+            <p>Amount spent this month:</p>
+            <h5 id="amount-spent">€1000</h5>
+        </div>
         <div class="d-flex">
             <section class="container sidebar d-flex justify-content-between flex-column col-2">
                 <div class="row">
                     <div class="col-2"></div>
                     <ul class="col-10 pt-3">
-                        <li>Dashboard</li>
-                        <li>All spendings</li>
-                        <li>Create new</li>
-                        <li>Add note</li>
-                        <li>Account</li>
+                        <li><a href="dashboard.php?id=<?=$id?>">Dashboard</a></li>
+                        <li><a href="#">All spendings</a></li>
+                        <li><a href="#">Create new</a></li>
+                        <li><a href="#">Add note</a></li>
+                        <li><a href="profile.php">Account</a></li>
+                        <li><a href="https://anthonytoons.nl">Main site</a></li>
                     </ul>
                 </div>
                 <div class="row">
@@ -73,7 +78,7 @@ if ($result->num_rows > 0) {
                 <div class="col-12 top-bar mb-4"></div>
                 <div class="container">
                     <div class="row mx-auto">
-                        <h1>Statistics</h1>
+                        <h1>Statistics <?= date("Y"); ?></h1>
                     </div>
                     <div class="row stat-row">
                         <div class="statistics col-12 mb-3">
