@@ -19,6 +19,7 @@ if ($result->num_rows > 0) {
         $content .= '<div class="reason col-3">'.$row["SPENDING_TITLE"].'</div>';
         $content .= '<div class="amount col-3">&euro;'.$row["SPENDING_AMOUNT"].'</div>';
         $content .= '<div class="col-3 buttons-edit-remove d-flex justify-content-evenly">';
+        $content .= '<a class="button button-view">View</a>';
         $content .= '<a class="button button-edit">Edit</a>';
         $content .= '<a class="button button-remove">Remove</a>';
         $content .= '</div>';

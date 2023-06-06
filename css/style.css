@@ -49,6 +49,9 @@ a.button-edit {
 a.button-remove {
     background-color: rgb(201, 54, 54);
 }
+a.button.button-view {
+    background-color: rgb(54, 71, 201);
+}
 a.button {
     text-decoration: none;
     color: #fff;
@@ -78,6 +81,11 @@ a.button.button-remove:hover {
 }
 a.button.button-edit:hover {
     background-color: rgb(28, 73, 28);
+    cursor: pointer;
+    transition: all .3s;
+}
+a.button.button-view:hover {
+    background-color: rgb(41, 45, 130);
     cursor: pointer;
     transition: all .3s;
 }
