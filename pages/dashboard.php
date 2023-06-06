@@ -13,6 +13,7 @@
     <header>
         <ul class="nav mobile-nav flex-column mb-4">
             <li>Dashboard</li>
+            <li>All spendings</li>
             <li>Create new</li>
             <li>Add note</li>
             <li>Account</li>
@@ -20,10 +21,11 @@
         </ul>
     </header>
     <main>
-        <div class="content">
+        <div class="content d-flex">
             <section class="sidebar d-flex flex-column col-3">
                 <ul>
                     <li>Dashboard</li>
+                    <li>All spendings</li>
                     <li>Create new</li>
                     <li>Add note</li>
                     <li>Account</li>
@@ -34,14 +36,51 @@
             </section>
             <section class="dashboard-content col-9">
                 <div class="content">
-                    <div class="statistics col-5">
+                    <div class="statistics col-12 mb-3">
                         <div class="d-grid">
                             <div class="col-1"></div>
                             <div class="col-11 stats-container"></div>
                             <div class="col-11"></div>
                         </div>
                     </div>
-                    <div class="recent-spendings col-5"></div>
+                    <div class="recent-spendings col-12">
+                        <div class="content col-12 d-flex align-items-center mb-4">
+                            <div class="content col-9">
+                                <h1>Recent spendings</h1>
+                            </div>
+                            <div class="content col-2 d-flex justify-content-center">
+                                <div class="add-new"></div>
+                            </div>
+                            <div class="content col-1"></div>
+                        </div>
+                        <div class="content recent-spending d-flex">
+                            <div class="date col-3">6-6-2023</div>
+                            <div class="reason col-3"><p>Gamecube controller</p></div>
+                            <div class="amount col-3">&euro;20,00</div>
+                            <div class="col-3 buttons-edit-remove d-flex">
+                                <button>Edit</button>
+                                <button>Remove</button>
+                            </div>
+                        </div>
+                        <div class="content recent-spending d-flex">
+                            <div class="date col-3">6-6-2023</div>
+                            <div class="reason col-3"><p>Double dash</p></div>
+                            <div class="amount col-3">&euro;40,00</div>
+                            <div class="col-3 buttons-edit-remove d-flex">
+                                <button>Edit</button>
+                                <button>Remove</button>
+                            </div>
+                        </div>
+                        <div class="content recent-spending d-flex">
+                            <div class="date col-3">6-6-2023</div>
+                            <div class="reason col-3"><p>Gamecube</p></div>
+                            <div class="amount col-3">&euro;120,00</div>
+                            <div class="col-3 buttons-edit-remove d-flex">
+                                <button>Edit</button>
+                                <button>Remove</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </section>
         </div>

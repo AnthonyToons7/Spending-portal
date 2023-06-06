@@ -10,6 +10,25 @@ section.sidebar {
     height: 100vh;
     color: #fff;
 }
+div.reason p{
+    width: 150px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+div.add-new{
+    width: 30px;
+    height: 30px;
+    padding: 20px;
+    background-color: #006994;
+    color: #fff;
+    border-radius: 100%;
+}
+div.recent-spendings {
+    padding: 10px;
+}
+div.recent-spending{
+    padding-left: 20px;
+}
 @media screen and (min-width: 992px) {
     ul.mobile-nav {
         display: none !important;
