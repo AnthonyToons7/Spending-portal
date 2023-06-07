@@ -3,6 +3,9 @@
     margin: 0;
     box-sizing: border-box;
 }
+body {
+    overflow-x: hidden;
+}
 div.top-bar {
     background-color: #006994;
     height: 40px;
@@ -29,8 +32,8 @@ section.sidebar {
     top: 0;
     left: 0;
 }
-div.reason p{
-    width: 150px;
+div.reason{
+    width: 70px;
     overflow: hidden;
     text-overflow: ellipsis;
 }
@@ -64,6 +67,7 @@ a.button {
     color: #fff;
     padding: 10px;
     border-radius: 5px;
+    margin: 2px;
 }
 .price-amt {
     padding: 10px;
@@ -121,12 +125,22 @@ div.amount-spent-month {
     box-shadow: 0 0 5px #000;
     pointer-events: none;
 }
+header {
+    position: absolute;
+    top: -200px;
+    padding-left: unset !important;
+    padding-right: unset !important;
+    transition: all .5s;
+}
 @media screen and (min-width: 992px) {
     ul.mobile-nav {
         display: none !important;
     }
     section.sidebar{
         display: flex;
+    }
+    div.reason{
+        width: 150px;
     }
 }
 @media screen and (max-width: 992px) {
@@ -135,5 +149,14 @@ div.amount-spent-month {
     }
     section.sidebar {
         display: none !important;
+    }
+    section.dashboard-content {
+        width: 100% !important;
+    }
+    div {
+        font-size: 12px;
+    }
+    h5 {
+        font-size: 14px;
     }
 }

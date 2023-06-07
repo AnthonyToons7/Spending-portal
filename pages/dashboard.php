@@ -39,7 +39,7 @@ if ($result->num_rows > 0) {
     <script src="../js/jquery-3.6.1.js"></script>
 </head>
 <body>
-    <header>
+    <header class="container">
         <ul class="nav mobile-nav flex-column mb-4">
             <li><a href="dashboard.php?id=<?=$id?>">Dashboard</a></li>
             <li><a href="#">All spendings</a></li>
@@ -70,7 +70,7 @@ if ($result->num_rows > 0) {
                 <div class="row">
                 <div class="col-2"></div>
                 <ul class="col-10 pb-3">
-                        <li>Log out</li>
+                        <li><a href="../crud-pages/logout.php">Log out</a></li>
                     </ul>
                 </div>
             </section>
