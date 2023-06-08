@@ -33,7 +33,6 @@ section.sidebar {
     left: 0;
 }
 div.reason{
-    width: 70px;
     overflow: hidden;
     text-overflow: ellipsis;
 }
@@ -139,9 +138,6 @@ header {
     section.sidebar{
         display: flex;
     }
-    div.reason{
-        width: 150px;
-    }
 }
 @media screen and (max-width: 992px) {
     ul.mobile-nav {
@@ -158,5 +154,8 @@ header {
     }
     h5 {
         font-size: 14px;
+    }
+    div.recent-spending {
+        padding: 20px 30px 20px 0;
     }
 }
