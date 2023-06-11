@@ -6,7 +6,7 @@ if ($_SESSION["PORTAL_LOGGEDIN"] != true){
 }
 $id = $_GET["id"];
 $mysqli = new mysqli($one,$two,$three,$four, "3306");
-$qry = "SELECT SPENDING_AMOUNT, SPENDING_DATE, SPENDING_TITLE FROM spendings WHERE USER_ID = ? ORDER BY SPENDING_DATE DESC LIMIT 3 ;";
+$qry = "SELECT SPENDING_AMOUNT, SPENDING_DATE, SPENDING_TITLE, SPENDINGS_ID FROM spendings WHERE USER_ID = ? ORDER BY SPENDING_DATE DESC LIMIT 3 ;";
 $mysqli_stmt = $mysqli->prepare($qry);
 $mysqli_stmt->bind_param('i', $id);
 $mysqli_stmt->execute();
@@ -18,6 +18,7 @@ if ($result->num_rows > 0) {
         $content .= '<div class="date col-3">'.$row["SPENDING_DATE"].'</div>';
         $content .= '<div class="reason col-3">'.$row["SPENDING_TITLE"].'</div>';
         $content .= '<div class="amount col-3">&euro;'.$row["SPENDING_AMOUNT"].'</div>';
+        $content .= '<input type="hidden" class="id col-3" value="'.$row["SPENDINGS_ID"].'"/>';
         $content .= '<div class="col-3 buttons-edit-remove d-flex justify-content-evenly">';
         $content .= '<a class="button button-view">View</a>';
         $content .= '<a class="button button-edit">Edit</a>';
@@ -53,6 +54,16 @@ if ($result->num_rows > 0) {
         <div class="amount-spent-month">
             <p>Amount spent this month:</p>
             <h5 id="amount-spent">€1000</h5>
+        </div>
+        <div class="add-new-form flex-column justify-content-around align-items-end">
+            <svg id="cross" width="16" height="16" xmlns="http://www.w3.org/2000/svg"><path d="M14.364.222l1.414 1.414L9.414 8l6.364 6.364-1.414 1.414L8 9.414l-6.364 6.364-1.414-1.414L6.586 8 .222 1.636 1.636.222 8 6.586 14.364.222z" fill="#000" fill-rule="evenodd"/></svg>
+            <div class="d-flex flex-column justify-content-around">
+                <input type="text" name="" id="input-title" placeholder="Title">
+                <input type="date" name="" id="input-date">
+                <input type="number" name="" id="input-number" placeholder="Amount">
+                <textarea name="" id="input-desc" cols="30" rows="10" placeholder="Description"></textarea>
+                <button class="submit-new-button">Add</button>
+            </div>
         </div>
         <div class="d-flex">
             <section class="container sidebar d-flex justify-content-between flex-column col-2">

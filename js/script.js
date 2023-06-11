@@ -83,7 +83,20 @@ function hoverEvents(event){
         });
     }
 }
+document.querySelector("div.add-new").addEventListener("click", ()=>{
+    document.querySelector("div.add-new-form").style.display="flex";
+});
 function hoverOff() {
     total=0;
     document.querySelector(".amount-spent-month").style.opacity=0;
 }
+
+// JQ
+$("#cross").on("click", ()=>$("div.add-new-form").css("display", "none"));
+$(".submit-new-button").on("click",()=>{
+    const title=$("#input-title").val();
+    const date=$("#input-date").val();
+    const amount=$("#input-amount").val();
+    const desc=$("#input-desc").val();
+    fetchData(`../api/add-new.php?id=${userID}&title=${title}&date=${date}&amount=${amount}&desc=${desc}`).then((data) => {});
+});
