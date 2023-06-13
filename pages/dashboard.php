@@ -44,7 +44,7 @@ if ($result->num_rows > 0) {
         <ul class="nav mobile-nav flex-column mb-4">
             <li><a href="dashboard.php?id=<?=$id?>">Dashboard</a></li>
             <li><a href="#">All spendings</a></li>
-            <li><a href="#">Create new</a></li>
+            <li class="create-new-nav-mob">Create new</li>
             <li><a href="#">Add note</a></li>
             <li><a href="profile.php">Account</a></li>
             <li><a href="https://anthonytoons.nl">Main site</a></li>
@@ -72,7 +72,7 @@ if ($result->num_rows > 0) {
                     <ul class="col-10 pt-3">
                         <li><a href="dashboard.php?id=<?=$id?>">Dashboard</a></li>
                         <li><a href="#">All spendings</a></li>
-                        <li><a href="#">Create new</a></li>
+                        <li class="create-new-nav">Create new</li>
                         <li><a href="#">Add note</a></li>
                         <li><a href="profile.php">Account</a></li>
                         <li><a href="https://anthonytoons.nl">Main site</a></li>

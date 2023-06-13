@@ -83,15 +83,16 @@ function hoverEvents(event){
         });
     }
 }
-document.querySelector("div.add-new").addEventListener("click", ()=>{
-    document.querySelector("div.add-new-form").style.display="flex";
-});
 function hoverOff() {
     total=0;
     document.querySelector(".amount-spent-month").style.opacity=0;
 }
 
 // JQ
+$("div.add-new").on("click", showForm);
+$("li.create-new-nav").on("click", showForm);
+function showForm(){$("div.add-new-form").css("display", "flex");}
+
 $("#cross").on("click", ()=>$("div.add-new-form").css("display", "none"));
 $(".submit-new-button").on("click",()=>{
     const title=$("#input-title").val();

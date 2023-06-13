@@ -196,7 +196,8 @@ div.add-new-form button {
 div.add-new-form button:hover {
     background-color: #ededed;
 }
-svg:hover {
+svg:hover,
+li:hover {
     cursor: pointer;
 }
 @media screen and (min-width: 992px) {
